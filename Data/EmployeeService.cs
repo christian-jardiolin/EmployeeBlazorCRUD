@@ -36,18 +36,11 @@ namespace EmployeeBlazorCRUD.Data
             //var connectionValue = SqlConnection connection = ConnectionManager.Get_DatabaseConnection();
             //SqlConnection connection1 = new SqlConnection(connectionValue);
             //SqlConnection connection1 = ConnectionManager.Get_DatabaseConnection();
-            SqlDataReader reader;
             using (SqlConnection connection1 = ConnectionManager.Get_DatabaseConnection())
             {
                 var sql = "SELECT * FROM Employees";
                 var command = new SqlCommand(sql, connection1);
-                //connection1.Open();
                 command.ExecuteReader();
-                //if (reader.Read())
-                //{
-
-                //}
-                //reader.Close();
                 return await _applicationDbContext.Employees.ToListAsync();
             }
             
